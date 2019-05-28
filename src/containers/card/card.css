@@ -1,0 +1,54 @@
+.close {
+  width: 10%;
+  -webkit-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+}
+
+.close:hover {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.cardActionBut {
+  -webkit-animation: expand 0.3s;
+  animation: expand 0.3s;
+}
+
+@-webkit-keyframes expand {
+  from {
+    -webkit-transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes expand {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.fadeOutDialog {
+  -webkit-animation: fadeOut 0.3s;
+  animation: fadeout 0.3s;
+}
+
+@keyframes fadeout {
+  0% {opacity: 1;}
+  100% {opacity: 0;} 
+}
+
+@-webkit-keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.dialogAdd {
+  width: 40%;
+  margin-top: 10px;
+}
+         
