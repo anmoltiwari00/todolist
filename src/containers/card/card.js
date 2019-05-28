@@ -64,7 +64,7 @@ class Card extends Component {
   }
   
   showCalender() {
-    this.setState({showDate: true}, () => console.log(this.node));
+    this.setState({showDate: true});
   }
   
   editDate(date) {

@@ -19,7 +19,8 @@ class App extends Component {
       showDialog: false,
       dragging: false,
       editing: false,
-      cardClicked: {}
+      cardClicked: {},
+      actionButtonLoc: 0
     }
     this.onDragEnd = this.onDragEnd.bind(this);
     this.onDragStart = this.onDragStart.bind(this);
@@ -29,6 +30,11 @@ class App extends Component {
     this.toggleClasses = this.toggleClasses.bind(this);
     this.toggleZIndex = this.toggleZIndex.bind(this);
     this.toggleBackground = this.toggleBackground.bind(this);
+  }
+  
+  componentDidMount() {
+    const bottom = document.getElementById('actionBut').getBoundingClientRect().bottom;
+    this.setState({actionButtonLoc: bottom});
   }
   
   onDragStart(result) { // called at the start of a drag
@@ -96,15 +102,12 @@ class App extends Component {
   }
   
   checkIfDroppedOnTrash(id) { //checks if draggable is dropped on trash icon
-    const y = this.getAddButtonLocation();
+    const y = this.state.actionButtonLoc;
     const draggable = document.getElementById(id);
     const draggablePos = draggable.getBoundingClientRect().bottom;
     var actionPos = y;
     if((draggablePos > actionPos) && (draggablePos - actionPos < 120)) {
         this.deleteDraggable(id);
-    } else {
-      draggable.classList.remove('shrinkHalf');
-      draggable.classList.remove('shrink20');
     }
   }
   
@@ -140,7 +143,7 @@ class App extends Component {
     } else {
       var itemArray = this.state.items;
       itemArray.push(newItem);
-      this.setState({items: itemArray}, () => {console.log(this.state.items);callback();});
+      this.setState({items: itemArray}, () => callback());
     }
   }
   
