@@ -93,9 +93,6 @@ class App extends Component {
     if(drag) {
       e.preventDefault();
       this.setState({dragging: false}, () => {
-        this.toggleClasses('actionBut', 'add', 'delete');
-        this.toggleZIndex(item.id);
-        this.toggleBackground(item.id);
         this.checkIfDroppedOnTrash(item.id);
       });
     }
@@ -105,20 +102,36 @@ class App extends Component {
     const y = this.state.actionButtonLoc;
     const draggable = document.getElementById(id);
     const draggablePos = draggable.getBoundingClientRect().bottom;
-    var actionPos = y;
-    if((draggablePos > actionPos) && (draggablePos - actionPos < 120)) {
+    if((draggablePos > y) && (draggablePos - y < 100)) {
         this.deleteDraggable(id);
+    } else if((draggablePos < y) && (y - draggablePos < 100)){
+      this.deleteDraggable(id);
+    } else {
+      this.toggleZIndex(id);
+      this.toggleBackground(id);
+      this.toggleClasses('actionBut', 'add', 'delete');
     }
   }
   
   deleteDraggable(id) { //deletes the div being dragged
     const filteredArray = this.state.items.filter(item => item.id != id);
     const newArray = [];
-    filteredArray.forEach((item, index) => {
-      newArray.push({id: index+1, date: item.date, content: item.content});
-    })
-    this.setState({items: newArray, dragging: false}, 
-      () => this.toggleClasses('actionBut', 'add', 'delete'));
+    if(filteredArray.length > 0) {
+      filteredArray.forEach((item, index) => {
+        newArray.push({id: index+1, date: item.date, content: item.content});
+      });
+      this.toggleZIndex(id);
+      this.toggleBackground(id);
+    }
+    if(newArray.length == 0) {
+      this.setState({items: [], dragging: false}, () => {
+        this.toggleClasses('actionBut', 'add', 'delete');
+        setTimeout(() => window.location.reload())
+      });
+    }
+    else {
+      this.setState({items: newArray, dragging: false}, () => this.toggleClasses('actionBut', 'add', 'delete'));
+    }
   }
   
   openDialog() { //open content dialog box for creating card
@@ -129,7 +142,7 @@ class App extends Component {
     this.setState({showDialog: false})
   }
   
-  addItem(editing, editingItem, newItem, callback, editingState) { //passed as prop to card.js for adding todo item
+  addItem(editing, editingItem, newItem, callback) { //passed as prop to card.js for adding todo item
     if(editing) {
       var itemArrayWhenEditing = this.state.items;
       itemArrayWhenEditing.forEach(item => {
@@ -164,6 +177,7 @@ class App extends Component {
                     {...provided.droppableProps}
                     ref={provided.innerRef}
                     style={globals.getListStyle(snapshot.isDraggingOver)}
+                    id="dragcont"
                   >
                     {this.state.items && this.state.items.map((item, index) => (
                       <Draggable key={item.id} draggableId={item.id} index={index} >

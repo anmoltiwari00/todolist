@@ -3,10 +3,12 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   min-height: 100%;
   font-family: 'Open Sans', serif;
+  background-color: #f8f8f9;
+  max-width: 768px;
 }
 
 .center {
@@ -89,10 +91,6 @@ h1, h2, h3 {
   border-bottom: none!important;
 }
 
-.MuiInput-underline {
-  font-size: 19pt!important;
-}
-
 .notDragging {
   background-color: #fffdff;
   color: #b6b4b6;
@@ -105,10 +103,30 @@ h1, h2, h3 {
 
 input {
   margin-left: 30px!important;
-  position: relative;
-  top: 40%;
 }
 
 .MuiInputBase-input:focus {
   outline: none!important;
+}
+
+.MuiFormControl-marginNormal {
+  margin-top: 0!important;
+}
+
+.MuiFormControl-root {
+  display: grid!important;
+}
+
+.MuiInputBase-input {
+  width: 90%!important;
+  font-weight: bold!important;
+}
+
+.MuiDialog-paperScrollPaper {
+  max-height: 100%!important;
+}
+
+.MuiDialog-root {
+  max-width: 768px;
+  margin: 0 auto;
 }

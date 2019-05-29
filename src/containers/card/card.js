@@ -74,7 +74,7 @@ class Card extends Component {
   render() {
     return(
       <Dialog fullScreen open={this.state.open} onClose={this.handleClose} id="dialog">
-        <div className="left20 top20">
+        <div className="left20 top10">
           <img src={close} alt="close" onClick={this.handleClose} className="close reverseRot"/>
         </div>
         <div>

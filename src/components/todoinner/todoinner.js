@@ -6,13 +6,17 @@ import styleSheet from '../../containers/app/appstyle';
 import alarm from '../../assets/alarm.svg';
 
 class TodoInner extends Component {
+  shortenLength(content) {
+    if(content.length > 15)
+      return content.substring(0, 20) + "...";
+    return content;
+  }
   render() {
     const p = this.props;
     const { 
       provided,
       snapshot, 
       onClick,
-      onTouchMove,
       onTouchEnd,
       item 
     } = p;
@@ -31,7 +35,7 @@ class TodoInner extends Component {
         onTouchEnd={onTouchEnd}
       >
         <div>
-          <p style={styleSheet.content}>{item.content}</p>
+          <p style={styleSheet.content}>{this.shortenLength(item.content)}</p>
           <p style={styleSheet.date}>Due {item.date}</p>
         </div>
         <div style={styleSheet.alarmCont}>

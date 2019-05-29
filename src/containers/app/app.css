@@ -5,10 +5,11 @@
   position: fixed!important;
   border-radius: 50%!important;
   bottom: 10%!important;
-  width: 20%!important;
-  height: 11%!important;
+  width: 70px!important;
+  height: 70px!important;
   -webkit-animation: grow 0.3s!important;
   animation: grow 0.3s!important;
+  margin-left: -5%!important;
 }
 
 @-webkit-keyframes grow {
@@ -36,6 +37,7 @@
   position: fixed!important;
   border-radius: 50%!important;
   bottom: 10%!important;
-  width: 20%!important;
-  height: 11%!important;
+  width: 70px!important;
+  height: 70px!important;
+  margin-left: -5%!important;
 }

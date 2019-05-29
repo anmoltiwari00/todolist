@@ -6,7 +6,8 @@ const styleSheet = {
     position: 'fixed',
     bottom: '0',
     width: '100%',
-    borderRadius: 'none'
+    borderRadius: 'none',
+    maxWidth: '768px'
   },
   input: {
     marginLeft: '30px',
@@ -17,12 +18,12 @@ const styleSheet = {
     textAlign: 'right',
     marginRight: '10px',
     position: 'absolute',
-    bottom: '10%',
-    left: '85%'
+    bottom: '60px',
+    right: '0px'
   },
   cal: {
-    width: '80%',
-    marginRight: '15px'
+    width: '40px',
+    marginRight: '5px'
   },
   buttonIcon: {
     width: '6%'

@@ -4,17 +4,18 @@ const styleSheet = {
     height: '100vh'
   },
   wrapper: {
-    paddingTop: '20px',
+    paddingTop: '10px',
     width: '90%',
     margin: '0 auto'
   },
   header: {
     marginBottom: '20px',
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    width: '100%'
   },
   headerMsg: {
-    width: '100%'
+    width: '80%'
   },
   taskNo: {
     color: '#bebbbf',
@@ -30,31 +31,33 @@ const styleSheet = {
     position: 'fixed',
     borderRadius: '50%',
     bottom: '10%',
-    width: '20%',
-    height: '11%'
+    width: '70px',
+    height: '70px'
   },
   trash: {
     borderRadius: '50%',
     position: 'fixed',
     bottom: '10%',
-    width: '17%'
+    width: '70px',
+    height: '70px'
   },
   buttonCont: {
     zIndex: '100000',
     position: 'absolute',
     height: '10%',
-    width: '13%',
+    width: '100%',
+    maxWidth: '768px',
     top: '82%',
-    left: '42%'
+    textAlign: 'center'
   },
   avatar: {
     borderRadius: '50%',
     width: '65%',
-    marginTop: '25%'
+    marginTop: '25px'
   },
   imageCont: {
     textAlign: 'end',
-    width: '40%'
+    width: '20%'
   },
   date: {
     color: '#e0dee0',
@@ -72,7 +75,7 @@ const styleSheet = {
     width: '60%'
   },
   trashIcon: {
-    width: '70%'
+    width: '60%'
   }
 }
 

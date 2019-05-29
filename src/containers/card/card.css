@@ -1,5 +1,5 @@
 .close {
-  width: 10%;
+  width: 30px;
   -webkit-transition: transform 0.3s ease;
   transition: transform 0.3s ease;
 }

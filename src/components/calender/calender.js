@@ -12,7 +12,8 @@ export default function Picker(props) {
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <DatePicker 
-          value={selectedDate} 
+          value={selectedDate}
+          disableToolbar
           onChange={(val) => {
             handleDateChange(val);
             handleChange(val, props);
